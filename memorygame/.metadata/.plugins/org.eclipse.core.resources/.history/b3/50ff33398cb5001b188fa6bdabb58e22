@@ -1,0 +1,39 @@
+package model;
+
+public class BoardList implements Board {
+
+	public BoardList() {
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public boolean inBounds(Position p) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public Card getCardAtPosition(Position p) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean finish() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public int pairsFoundBy(int playerID) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public boolean validPosition(Position position1, Position position2) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}

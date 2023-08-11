@@ -1,0 +1,31 @@
+package model;
+
+public interface Player {
+
+	/*
+	 * Die Spieler werden erzeugt.
+	 */
+	public void initialize(Game game, int id);
+
+	/*
+	 * Der erste Spieler wird "frei" geschaltet. Bzw. wird im Laufe des Spiels immer
+	 * wieder eingeschaltet, d.h. er ist dann am Zug.
+	 */
+	public void enable();
+
+	public void disable();
+
+	public Position fistSelectedPosition();
+
+	public Position secondSelectedPosition();
+
+	public void showFirstCard(Card fstCard, Position fstSelectedPosition);
+
+	public void showSecondCard(Card scndCard, Position scndSelectedPostion);
+
+	public void win();
+
+	public void draw();
+
+	public void lose();
+}

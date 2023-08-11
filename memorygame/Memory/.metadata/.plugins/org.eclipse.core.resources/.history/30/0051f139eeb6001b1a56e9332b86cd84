@@ -1,0 +1,21 @@
+package controller.game;
+
+import model.IBoard;
+
+public interface IGame {
+
+	
+	public void start();
+
+	
+	public void update();
+
+	
+	public void save();
+
+	
+	public void load();
+
+	
+	public IBoard getBoard();
+}

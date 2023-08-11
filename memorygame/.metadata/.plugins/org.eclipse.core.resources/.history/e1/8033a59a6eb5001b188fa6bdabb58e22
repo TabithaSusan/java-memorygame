@@ -1,0 +1,8 @@
+package model;
+
+public interface Game {
+	public void start();
+	public void update();
+	public void load();
+	public Board getBoard();
+}

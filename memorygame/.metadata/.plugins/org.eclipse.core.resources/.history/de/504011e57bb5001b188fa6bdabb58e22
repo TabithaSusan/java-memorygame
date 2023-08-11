@@ -1,0 +1,120 @@
+package model;
+
+public class BoardMatrix implements Board {
+
+	protected Card[][] board;
+	protected int height;
+	protected int width;
+	protected int score;
+	
+	public BoardMatrix {
+		this.score = 0;
+	}
+
+	/*
+	 * Die Methode überprüft, ob das gesamte Brett bereits aufgedeckt wurde.
+	 * 
+	 * @return Default true. nur false, wenn nicht alle aufgedeckt wurden.
+	 */
+	public boolean finish() {
+		for(().isHidden()) {
+			return false;			
+		}
+		return true;
+	}
+
+	/**
+	 * Diese Methode speichert die Anzahl der gespeicherten Paare für die jeweiligen
+	 * Spieler ab Im ersten Schritt wird überprüft, ob es sich bei der Aufdeckung um
+	 * ein Paar handelt. Ist dies so, so wird der scoreplayerID um eins erhöht. Ist
+	 * dies nicht so, so passiert nichts. Der Rückgabewert ist der score.
+	 * 
+	 * @param playerID ID Für Spieler
+	 * @param score    Score der mit der ID des Spielers verbunden ist
+	 */
+
+	public int pairsFoundBy(int playerID) {
+		 // so wird der score jedes mal auf null gesetzt. er sollte aber irgendwie
+						// zwischen gespeichert werden, sodass er bei der jeweiligen Zahl weitergeht
+		if (isMatch() == true) {
+			score++;
+		}
+		return score;
+	}
+
+	/**
+	 * 
+	 * @param height
+	 * @param width
+	 */
+	public BoardMatrix(int height, int width) {
+		this.height = height;
+		this.width = width;
+		board = new Card[height][width];
+
+		for (int row = 0; row < board.length; row++) {
+			for (int column = 0; column < board[row].length; column++) {
+				board[row][column] = new Card(0);
+			}
+		}
+	}
+
+	/**
+	 * Gibt die Grenzen des Spielbrettes an.
+	 * 
+	 * @param pb Position der Karte
+	 */
+
+	public boolean inBounds(Position p) {
+		return p.getRow() >= 0 && p.getRow() < height && p.getColumn() >= 0 && p.getColumn() < width;
+	}
+
+	/**
+	 * Solange die Karte innerhalb der Grenzen ist, wird sie zurückgegeben.
+	 * 
+	 * @param p Position der Karte
+	 */
+
+	public Card getCardAtPosition(Position p) {
+		if (inBounds(p)) {
+			return board[p.getRow()][p.getColumn()];
+		}
+		return new Card(0);
+	}
+
+	/**
+	 * Überprüft, ob die Position der Karten valide ist. D.h. dass es sich dabei
+	 * nicht um die gleiche Karte handelt. Es nicht bereits aufgedeckte Karten sind.
+	 * Und das sie sich auf dem Spielbrett befinden.
+	 * 
+	 * @param position1 Position der ersten Karte
+	 * @param position2 Position der zweiten Karte.
+	 */
+
+	public boolean validPosition(Position position1, Position position2) {
+		// innerhalb der grenzen, nicht die selber karte, nicht bereits aufgedeckte
+		// Karten
+		if (!inBounds(position1) || !inBounds(position2)) {
+			return false;
+		}
+		if (position1.equals(position2)) {
+			return false;
+		}
+		if (!getCardAtPosition(position1).isHidden() || !getCardAtPosition(position2).isHidden()) {
+			return false;
+		}
+		return true;
+	}
+
+	public String toString() {
+		String s = "";
+		for (Card[] row : board) {
+			for (Card card : row) {
+				s += card.getNumber() + "\t";
+			}
+			s += "\n";
+		}
+		return s;
+	}
+
+}

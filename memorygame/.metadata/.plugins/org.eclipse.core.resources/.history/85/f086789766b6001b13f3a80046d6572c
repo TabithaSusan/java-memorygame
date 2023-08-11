@@ -1,0 +1,65 @@
+package model;
+
+public class PlayerMatrix implements Player {
+
+	@Override
+	public void initialize(Game game, int id) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void enable() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void disable() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public Position firstSelectedPosition() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Position secondSelectedPosition() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void showFirstCard(Card fstCard, Position fstSelectedPosition) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void showSecondCard(Card scndCard, Position scndSelectedPostion) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void win() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void draw() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void lose() {
+		// TODO Auto-generated method stub
+
+	}
+
+}

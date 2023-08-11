@@ -1,0 +1,53 @@
+package model;
+
+public class BoardMatrix {
+
+	
+	
+	private Card[][] board;
+	protected int height; 
+	protected int width;
+	
+	
+	public BoardMatrix(int height, int width) {
+		this.height = height;
+		this.width = width;
+		board = new Card[height][width];
+		
+		for(int row = 0; row < board.length; row++) {
+			for(int column = 0; column < board[row].length; column++) {
+				board[row][column] = new Card(0);
+			}
+		}
+	}
+	
+	public boolean inBound(Position position) {
+		return position.getRow() >= 0 &&
+				position.getRow() < height &&
+				position.getColumn()>= 0 &&
+				position.getColumn() < width;
+	}
+	
+	
+	public Card getCardAtPosition(Position position){
+		if(inBound(position)) {
+			return board[position.getRow()][position.getColumn()];
+		}
+		return new Card(0);
+	}
+	
+	
+	public String toString() {
+		String s = "";
+		for(Card[] row: board) {
+			for(Card card : row) {
+				s+=card.getNumber() + "\t";
+			}
+			s+= "\n";
+		}
+		return s;
+	}
+	
+	
+	
+}

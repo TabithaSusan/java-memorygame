@@ -1,0 +1,46 @@
+package model;
+
+import java.util.LinkedList;
+
+public class BoardList implements Board {
+
+	private int size;
+	private LinkedList<Content> list; // Wieso ist hier Content als falsch markiert, im Video aber nicht?!
+
+	public BoardList() {
+		// TODO Auto-generated constructor stub
+		size = 3;// gilt hier auch drei, oder muss sie ggf. anagepasst werden, an die breite des
+					// eigentlich gewünschten Spielbrettes?
+	}
+
+	@Override
+	public boolean inBounds(Position p) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public Card getCardAtPosition(Position p) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean finish() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public int pairsFoundBy(int playerID) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public boolean validPosition(Position position1, Position position2) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}

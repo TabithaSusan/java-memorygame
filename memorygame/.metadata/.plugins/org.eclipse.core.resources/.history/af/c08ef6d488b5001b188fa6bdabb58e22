@@ -1,0 +1,9 @@
+package model;
+/*
+ * Mit SetBoard sollen Karten umgedreht werden können. So muss es zwei Methoden geben. Eine Methode umd die erste Karte umzudrehen. Und eine zweite umd die zweite umzudrehen.
+ */
+
+public interface SetBoard {
+
+	public boolean set
+}

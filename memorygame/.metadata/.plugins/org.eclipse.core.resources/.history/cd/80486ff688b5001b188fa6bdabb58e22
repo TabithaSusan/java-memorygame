@@ -1,0 +1,10 @@
+package model;
+
+public class SetBoardMatrix extends BoardMatrix implements SetBoard {
+
+	public SetBoardMatrix(int height, int width) {
+		super(height, width);
+		// TODO Auto-generated constructor stub
+	}
+
+}

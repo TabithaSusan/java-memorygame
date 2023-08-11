@@ -1,0 +1,106 @@
+package model;
+
+public class BoardMatrix implements Board{
+	
+	protected Card[][] board;
+	protected int height; 
+	protected int width;
+	
+	
+	public boolean finish() { // wenn alle Karten nicht mehr hidden sind, dann ist der wert True, default false
+		for(!().isHidden()) {
+			return true;			
+		}
+		return false;
+	}
+	
+	/**
+	 * 
+	 * @param playerID
+	 */
+	
+	public int pairsFoundBy(int playerID) {
+		//Brauchen Variable um die gefundenen paare zu speichern
+		int score;
+		//Variable score muss mit playerID verknüpft werden; Das hier kann nicht richtig sein, wie löst man es jedoch besser?
+		Score scoreplayerID = new Score(0);
+		
+		if(setDiscoveredBy(playerID)) {
+				score++;
+			}
+		}
+		return score;
+	}
+
+	/**
+	 * 
+	 * @param height
+	 * @param width
+	 */
+	public BoardMatrix(int height, int width) {
+		this.height = height;
+		this.width = width;
+		board = new Card[height][width];
+		
+		for(int row = 0; row < board.length; row++) {
+			for(int column = 0; column < board[row].length; column++) {
+				board[row][column] = new Card(0);
+			}
+		}
+	}
+	
+	/**
+	 * 
+	 * @param p
+	 */
+	
+	public boolean inBounds(Position p) {
+		return p.getRow() >= 0 &&
+				p.getRow() < height &&
+				p.getColumn()>= 0 &&
+				p.getColumn() < width;
+	}
+	
+	
+	public Card getCardAtPosition(Position p){
+		if(inBounds(p)) {
+			return board[p.getRow()][p.getColumn()];
+		}
+		return new Card(0);
+	}
+	
+	/**
+	 * 
+	 * @param position1
+	 * @param position2
+	 */
+	
+	public boolean validPosition(Position position1, Position position2) {
+		//innerhalb der grenzen, nicht die selber karte, nicht bereits aufgedeckte Karten
+		if(!inBounds(position1) || !inBounds(position2)) {
+			return false;
+		}
+		if(position1.equals(position2)) {
+			return false;
+		}
+		if(!getCardAtPosition(position1).isHidden() || !getCardAtPosition(position2).isHidden()) {
+			return false;
+		}
+		return true;
+	}
+	
+
+	public String toString() {
+		String s = "";
+		for(Card[] row: board) {
+			for(Card card : row) {
+				s+=card.getNumber() + "\t";
+			}
+			s+= "\n";
+		}
+		return s;
+	}
+	
+	
+	
+}

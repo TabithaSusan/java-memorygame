@@ -1,0 +1,9 @@
+package model;
+
+public interface Board {
+	
+	public boolean inBounds(Position p);
+	public Card getCardAtPosition(Position p);
+	public boolean finish();
+	public int pairsFoundBy(int playerID);
+}

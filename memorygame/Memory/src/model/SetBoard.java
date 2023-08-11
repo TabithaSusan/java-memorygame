@@ -1,0 +1,20 @@
+package model;
+/*
+ * Mit SetBoard sollen Karten umgedreht werden können. So muss es zwei Methoden geben.
+ * Eine Methode umd die erste Karte umzudrehen.
+ * Und eine zweite umd die zweite umzudrehen.
+ * Es ist notwendig, das die Methoden ein uns zwei exestieren, um die Reihenfolge einhalten zu können.
+ */
+
+public interface SetBoard {
+
+	/**
+	 * Methode um die erste Karte umzudrehen.	
+	 */
+	public boolean setFirstCardFlipped(Position p);
+	
+	/**
+	 * Methode um die zweite Karte umzudrehen.
+	 */
+	public boolean setSecondCardFlipped(Position p);
+}

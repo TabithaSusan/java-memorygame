@@ -1,0 +1,59 @@
+package model;
+
+public class BoardMatrix implements Board{
+	
+	private Card[][] board;
+	protected int height; 
+	protected int width;
+	
+	
+	public boolean finish() {
+		
+	}
+	
+	public int pairsFoundBy(int playerID) {
+		
+	}
+	
+	public BoardMatrix(int height, int width) {
+		this.height = height;
+		this.width = width;
+		board = new Card[height][width];
+		
+		for(int row = 0; row < board.length; row++) {
+			for(int column = 0; column < board[row].length; column++) {
+				board[row][column] = new Card(0);
+			}
+		}
+	}
+	
+	public boolean inBounds(Position p) {
+		return p.getRow() >= 0 &&
+				p.getRow() < height &&
+				p.getColumn()>= 0 &&
+				p.getColumn() < width;
+	}
+	
+	
+	public Card getCardAtPosition(Position p){
+		if(inBound(p)) {
+			return board[p.getRow()][p.getColumn()];
+		}
+		return new Card(0);
+	}
+	
+	
+	public String toString() {
+		String s = "";
+		for(Card[] row: board) {
+			for(Card card : row) {
+				s+=card.getNumber() + "\t";
+			}
+			s+= "\n";
+		}
+		return s;
+	}
+	
+	
+	
+}

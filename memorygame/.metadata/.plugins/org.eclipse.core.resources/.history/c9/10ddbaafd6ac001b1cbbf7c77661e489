@@ -1,0 +1,19 @@
+package model;
+
+public class BubbleSortA {
+	public int[] BubbleSort(int[] A) {
+		for (int k=0; k<A.length-1; k++) {
+			int max = A[0];
+			int endPos = A.length -1 -k;
+			for (int i=0; i<endPos; i++) {
+				if(A[i] > A[i+1]) {
+					A[i] = A[i+1];
+					A[i+1] = max;
+				} else {
+					max = A[i+1];
+				}
+			}
+		}
+	}
+	return A;
+}

@@ -1,0 +1,3 @@
+INDEX VERSION 1.131+F:\Google Drive\Studium\2. Semester\PROG2 - Programmieren\Memory Programm\Eigene Progammierung\.metadata\.plugins\org.eclipse.jdt.core
+622513181.index
+607551920.index

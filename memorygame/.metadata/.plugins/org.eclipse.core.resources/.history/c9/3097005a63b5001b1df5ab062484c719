@@ -1,0 +1,78 @@
+package model;
+
+public class BoardMatrix implements Board{
+	
+	protected Card[][] board;
+	protected int height; 
+	protected int width;
+	
+	
+	public boolean finish() { // wie soll das gelös werden, ohne dass das Array hiddenBoad übergeben wird?
+		
+	}
+	
+	public int pairsFoundBy(int playerID) {
+		int score = 0;
+		//Wenn player zwei Karten aufgedeckt hat, die auch noch die gleichen sind, und auch noch in dem richtigen Rahmen sind, dann kann score++
+		if(isMatch == true) {
+			if(inBounds == true) {
+				score++;
+			}
+		}
+	}
+	
+	public BoardMatrix(int height, int width) {
+		this.height = height;
+		this.width = width;
+		board = new Card[height][width];
+		
+		for(int row = 0; row < board.length; row++) {
+			for(int column = 0; column < board[row].length; column++) {
+				board[row][column] = new Card(0);
+			}
+		}
+	}
+	
+	public boolean inBounds(Position p) {
+		return p.getRow() >= 0 &&
+				p.getRow() < height &&
+				p.getColumn()>= 0 &&
+				p.getColumn() < width;
+	}
+	
+	
+	public Card getCardAtPosition(Position p){
+		if(inBounds(p)) {
+			return board[p.getRow()][p.getColumn()];
+		}
+		return new Card(0);
+	}
+	
+	public boolean validPosition(Position position1, Position position2) {
+		//innerhalb der grenzen, nicht die selber karte, nicht bereits aufgedeckte Karten
+		if(!inBounds(position1) || !inBounds(position2)) {
+			return false;
+		}
+		if(position1.equals(position2)) {
+			return false;
+		}
+		if(!getCardAtPosition(position1).isHidden() || !getCardAtPosition(position2).isHidden()) {
+			return false;
+		}
+		return true;
+	}
+	
+	public String toString() {
+		String s = "";
+		for(Card[] row: board) {
+			for(Card card : row) {
+				s+=card.getNumber() + "\t";
+			}
+			s+= "\n";
+		}
+		return s;
+	}
+	
+	
+	
+}
