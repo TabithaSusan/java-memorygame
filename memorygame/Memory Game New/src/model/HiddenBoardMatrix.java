@@ -1,12 +1,17 @@
 package model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Random;
 
-public class HiddenBoardMatrix extends BoardMatrix implements IHiddenBoard {
 
+public class HiddenBoardMatrix extends BoardMatrix implements IHiddenBoard, Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5425884536108232111L;
 	private Card[][] hiddenBoard;
 
 	public HiddenBoardMatrix(int height, int width) {

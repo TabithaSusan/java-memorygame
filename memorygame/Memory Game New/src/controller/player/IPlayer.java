@@ -32,11 +32,17 @@ public interface IPlayer {
 
 	/**
 	 * Zeigt die zu erst gewählte Karte an.
+	 * 
+	 * @param fstCard card value
+	 * @param fstSelectedPosition Position of the Card on the board
 	 */
 	public void showFirstCard(Card fstCard, Position fstSelectedPosition);
 
 	/**
-	 * Zeigt die zweite gewählte Karte an.
+	 * Zeigt die zu erst gewählte Karte an.
+	 * 
+	 * @param scndCard card value
+	 * @param scndSelectedPostion Position of the Card on the board
 	 */
 	public void showSecondCard(Card scndCard, Position scndSelectedPostion);
 

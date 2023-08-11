@@ -1,7 +1,13 @@
 package model;
 
-public class BoardMatrix implements IBoard {
+import java.io.Serializable;
 
+public class BoardMatrix implements IBoard, Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5314894151526789297L;
 	protected Card[][] board;
 	protected int height;
 	protected int width;
